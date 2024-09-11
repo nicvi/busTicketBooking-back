@@ -1,10 +1,10 @@
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import List
 
 class BusCreateDTO(BaseModel):
     bus_number: str
     number_of_seats: int
-    amenities: List[str]  # List of amenities
+    amenities: List[str]
 
 class BusResponseDTO(BaseModel):
     id: int

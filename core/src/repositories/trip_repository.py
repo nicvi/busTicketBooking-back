@@ -1,3 +1,4 @@
+from datetime import datetime
 from abc import ABC, abstractmethod
 from core.src.models.trip import Trip
 
@@ -7,7 +8,7 @@ class TripRepository(ABC):
         pass
 
     @abstractmethod
-    def get_available_trips(self, origin_city: str, destination_city: str, departure_date: str) -> list[Trip]:
+    def get_available_trips(self, origin_city: str, destination_city: str, departure_date: datetime) -> list[Trip]:
         pass
 
     @abstractmethod

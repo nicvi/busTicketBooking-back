@@ -1,5 +1,3 @@
-# core/src/repositories/ticket_repository.py
-
 from abc import ABC, abstractmethod
 from typing import List
 from core.src.models.ticket import Ticket

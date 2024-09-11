@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import Optional
 
 class TripCreateDTO(BaseModel):
     bus_id: int

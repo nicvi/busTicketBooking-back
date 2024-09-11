@@ -1,4 +1,4 @@
-from adapters.source.repositories.sql_repositories.sqlalchemy_trip_repository import SQLAlchemyTripRepository
+from adapters.src.repositories.sql_repositories.sqlalchemy_trip_repository import SQLAlchemyTripRepository
 
 from core.src.use_cases.get_available_trips import GetAvailableTripsUseCase
 from factories.config.sql_alchemy_session import get_db

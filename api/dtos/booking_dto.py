@@ -1,13 +1,12 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
 
 class BookingCreateDTO(BaseModel):
     user_id: int
     booking_date: datetime
     status: str
     trip_id: int
-    seat_numbers: list[int] ##
+    seat_numbers: list[int]
 
 class BookingResponseDTO(BaseModel):
     id: int
@@ -15,8 +14,7 @@ class BookingResponseDTO(BaseModel):
     booking_date: datetime
     status: str
     trip_id: int
-    seat_numbers: list[int] ##
+    seat_numbers: list[int]
 
     class Config:
         orm_mode = True
-

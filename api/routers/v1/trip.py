@@ -9,7 +9,6 @@ from utils.api_router.router import APIRouter
 
 trip = APIRouter()
 
-
 @trip.get(
     "/available_trips",
     response_model=List[Trip]

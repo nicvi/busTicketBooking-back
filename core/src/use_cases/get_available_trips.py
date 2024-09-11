@@ -1,9 +1,9 @@
-from pip._internal.utils import datetime
+from datetime import datetime
 
 from core.src.repositories.trip_repository import TripRepository
 
 
-class GetAvailableTripsUseCase:
+class GetAvailableTrips:
     def __init__(self, trip_repository: TripRepository):
         self.trip_repository = trip_repository
 

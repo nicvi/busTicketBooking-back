@@ -7,4 +7,3 @@ class Route:
     origin_city: str
     destination_city: str
     departure_date: datetime
-
