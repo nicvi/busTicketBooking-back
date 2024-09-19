@@ -1,4 +1,5 @@
-from pydantic import BaseModel# , EmailStr # allow this import
+from pydantic import BaseModel  # , EmailStr # allow this import
+
 
 class UserCreateDTO(BaseModel):
     name: str

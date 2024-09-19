@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List
+
 from core.src.models.ticket import Ticket
 
 
@@ -10,7 +10,7 @@ class TicketRepository(ABC):
         pass
 
     @abstractmethod
-    def list_tickets_by_booking(self, booking_id: int) -> List[Ticket]:
+    def list_tickets_by_booking(self, booking_id: int) -> list[Ticket]:
         pass
 
     @abstractmethod

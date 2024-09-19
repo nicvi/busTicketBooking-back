@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
+
 from core.src.models.bus import Bus
+
 
 class BusRepository(ABC):
     @abstractmethod

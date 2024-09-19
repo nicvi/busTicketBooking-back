@@ -1,9 +1,10 @@
-from datetime import datetime
 import unittest
+from datetime import datetime
 from unittest.mock import MagicMock
+
+from core.src.models.booking import Booking
 from core.src.repositories.booking_repository import BookingRepository
 from core.src.use_cases.get_booking_by_id import GetBookingById
-from core.src.models.booking import Booking
 
 
 class TestGetBookingById(unittest.TestCase):

@@ -1,6 +1,7 @@
 import unittest
-from unittest.mock import MagicMock
 from datetime import datetime
+from unittest.mock import MagicMock
+
 from core.src.repositories.trip_repository import TripRepository
 from core.src.use_cases.get_available_trips import GetAvailableTrips
 

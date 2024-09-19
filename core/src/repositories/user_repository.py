@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
+
 from core.src.models.user import User
+
 
 class UserRepository(ABC):
     @abstractmethod

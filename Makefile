@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 .PHONY: install run create-db run-db run-migrations
 
 install:
@@ -9,7 +11,7 @@ install:
 
 run:
 	@echo "====================================Running app================================="
-	source .venv/bin/activate && python3 runner.py
+	source .venv/bin/activate && uvicorn main:app --host 127.0.0.1 --port 7000 --reload
 
 create-db:
 	@echo "====================================Create DB================================="

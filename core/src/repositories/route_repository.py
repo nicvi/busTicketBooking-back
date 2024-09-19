@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
+
 from core.src.models.route import Route
-from typing import List
+
 
 class RouteRepository(ABC):
     @abstractmethod
@@ -8,7 +9,7 @@ class RouteRepository(ABC):
         pass
 
     @abstractmethod
-    def get_routes(self, origin_city: str, destination_city: str) -> List[Route]:
+    def get_routes(self, origin_city: str, destination_city: str) -> list[Route]:
         pass
 
     @abstractmethod

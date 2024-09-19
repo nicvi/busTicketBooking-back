@@ -4,7 +4,10 @@ from typing import Optional
 
 from fastapi import FastAPI
 
-from utils.api_router.router import APIRouter
+from api.routers.custom_api_router import APIRouter
+
+# from api.routers import APIRouter
+
 
 def register_routers(app: FastAPI, routers_path: str, stg_name: Optional[str] = "") -> None:
     router_module = import_module(routers_path)

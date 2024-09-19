@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from adapters.src.repositories.db_models import RouteSql, BusSql, TripSql
+from adapters.src.repositories.db_models import BusSql, RouteSql, TripSql
 from core.src.models.trip import Trip
 from core.src.repositories.trip_repository import TripRepository
 

@@ -2,6 +2,7 @@ from typing import Any, Callable
 
 from fastapi import APIRouter as FastAPIRouter
 
+
 class APIRouter(FastAPIRouter):
     exampleHere = "here in APIRouter"
     def add_api_route(

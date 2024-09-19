@@ -1,5 +1,3 @@
-from typing import List
-
 from sqlalchemy.orm import Session
 
 from core.src.models.route import Route
@@ -13,7 +11,7 @@ class SQLAlchemyRouteRepository(RouteRepository):
     def get_route_by_id(self, route_id: int) -> Route:
         pass
 
-    def get_routes(self, origin_city: str, destination_city: str) -> List[Route]:
+    def get_routes(self, origin_city: str, destination_city: str) -> list[Route]:
         pass
 
     def save_route(self, route: Route):

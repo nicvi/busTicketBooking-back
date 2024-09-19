@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
+
 from core.src.models.booking import Booking
-from typing import List
+
 
 class BookingRepository(ABC):
     @abstractmethod
@@ -12,5 +13,5 @@ class BookingRepository(ABC):
         pass
 
     @abstractmethod
-    def get_bookings_by_user_id(self, user_id: int) -> List[Booking]:
+    def get_bookings_by_user_id(self, user_id: int) -> list[Booking]:
         pass

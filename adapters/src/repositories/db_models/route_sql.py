@@ -1,10 +1,11 @@
-from sqlalchemy import Column, String, Integer, Float, DateTime
-from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
+from sqlalchemy import Column, DateTime, Float, Integer, String
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .base import Base
+
 
 class RouteSql(Base):
     __tablename__ = 'route'

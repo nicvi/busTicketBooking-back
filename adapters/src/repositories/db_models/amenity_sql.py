@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from .bus_amenity_sql import bus_amenity_table
 
 from .base import Base
+from .bus_amenity_sql import bus_amenity_table
+
 
 class AmenitySql(Base):
     __tablename__ = 'amenity'

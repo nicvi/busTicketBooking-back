@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
+
 from core.src.use_cases.get_cities import GetCities
+
 
 class TestGetCities(unittest.TestCase):
     def setUp(self):

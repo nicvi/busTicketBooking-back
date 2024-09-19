@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
+
 from adapters.src.repositories.sql_repositories import SQLAlchemyCityRepository
 from factories.config.db_connection import SessionLocal
 

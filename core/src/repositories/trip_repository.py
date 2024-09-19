@@ -1,6 +1,8 @@
-from datetime import datetime
 from abc import ABC, abstractmethod
+from datetime import datetime
+
 from core.src.models.trip import Trip
+
 
 class TripRepository(ABC):
     @abstractmethod

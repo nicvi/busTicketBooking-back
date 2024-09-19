@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class TicketCreateDTO(BaseModel):
     booking_id: int
     seat_number: int
