@@ -1,9 +1,9 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, orm
 
-from .base import Base
+from .. import db_models
 
-class BookingSql(Base):
+
+class BookingSql(db_models.Base):
     __tablename__ = 'booking'
 
     id = Column(Integer, primary_key=True, index=True)
@@ -12,7 +12,7 @@ class BookingSql(Base):
     status = Column(String, nullable=False)
     trip_id = Column(Integer, ForeignKey('trip.id'), nullable=False)
 
-    trip = relationship('TripSql', back_populates='bookings')
+    trip = orm.relationship('TripSql', back_populates='bookings')
 
     def __repr__(self):
         return (f"<BookingSql(id={self.id}, user_id={self.user_id}, "

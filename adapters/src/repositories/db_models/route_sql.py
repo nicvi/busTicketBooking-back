@@ -1,21 +1,21 @@
-from sqlalchemy import Column, String, Integer, Float, DateTime
-from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, DateTime, Integer, String, orm
+from sqlalchemy.dialects.postgresql import UUID
 
-from .base import Base
+from .. import db_models
 
-class RouteSql(Base):
+
+class RouteSql(db_models.Base):
     __tablename__ = 'route'
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
+    id = Column(Integer, primary_key=True, unique=True, nullable=False)
     origin_city = Column(String(100), nullable=False)
     destination_city = Column(String(100), nullable=False)
     departure_date = Column(DateTime, nullable=False)
 
 
-    trips = relationship('TripSql', back_populates='route')
+    trips = orm.relationship('TripSql', back_populates='route')
 
     def __repr__(self):
         return (f"<Route(id={self.id}, origin_city={self.origin_city},"

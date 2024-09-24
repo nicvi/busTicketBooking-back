@@ -1,15 +1,14 @@
-import unittest
-from unittest.mock import MagicMock
 from datetime import datetime
-from core.src.repositories.trip_repository import TripRepository
-from core.src.use_cases.get_available_trips import GetAvailableTrips
+from unittest import TestCase, mock
+
+import core
 
 
-class TestGetAvailableTrips(unittest.TestCase):
+class TestGetAvailableTrips(TestCase):
     def setUp(self):
-        self.mock_trip_repository = MagicMock(spec=TripRepository)
+        self.mock_trip_repository = mock.MagicMock(spec=core.TripRepository)
 
-        self.get_available_trips = GetAvailableTrips(self.mock_trip_repository)
+        self.get_available_trips = core.GetAvailableTrips(self.mock_trip_repository)
 
     def test_execute_with_valid_trips(self):
         origin_city = "Guayaquil"

@@ -1,13 +1,13 @@
 from dataclasses import dataclass
 from datetime import date
 
-from core.src.models.booking import Booking
+from .. import models
 
 
 @dataclass
 class Payment:
     id: int
-    booking: Booking
+    booking: models.Booking
     payment_method: str
     status: str
     payment_date: date

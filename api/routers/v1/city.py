@@ -1,22 +1,21 @@
 from http import HTTPStatus
 
-from fastapi import Depends, status, HTTPException
+from fastapi import Depends, HTTPException, status
 
-from api.dependencies.city import get_cities_use_case
-from core.src.use_cases.get_cities import GetCities
-from typing import List
-from utils.api_router.router import APIRouter
+import core
 
-city = APIRouter()
+from ... import config, dependencies
+
+city = config.APIRouter()
 
 @city.get(
-    "/",
+    path="/",
     name="get_cities",
     status_code=status.HTTP_200_OK,
-    response_model=List)
-def get_cities(use_case: GetCities = Depends(get_cities_use_case)):
+    response_model=list[str])
+def get_cities(use_case: core.GetCities = Depends(dependencies.get_cities_use_case)):
     try:
         cities = use_case.execute()
         return cities
-    except Exception as e:
-        raise HTTPException(status_code=HTTPStatus.INTERNAL_SERVER_ERROR, detail=str(e))
+    except Exception as error:
+        raise HTTPException(status_code=HTTPStatus.INTERNAL_SERVER_ERROR, detail=str(error))

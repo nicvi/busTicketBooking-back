@@ -5,11 +5,13 @@ Revises: 6d6ac24c7093
 Create Date: 2024-09-10 01:18:11.252835
 
 """
-from alembic import op
-import sqlalchemy as sa
-from sqlalchemy.sql import table, column
-from sqlalchemy.dialects import postgresql
 import random
+
+import sqlalchemy as sa
+from sqlalchemy.dialects import postgresql
+from sqlalchemy.sql import column, table
+
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = '47606e6f58df'

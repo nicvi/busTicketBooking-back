@@ -1,21 +1,21 @@
 from datetime import datetime
+from typing import Any
 
-from sqlalchemy import func
-from sqlalchemy.orm import Session
+from sqlalchemy import func, orm
 
-from adapters.src.repositories.db_models import RouteSql, BusSql, TripSql
-from core.src.models.trip import Trip
-from core.src.repositories.trip_repository import TripRepository
+import core
+
+from .. import db_models
 
 
-class SQLAlchemyTripRepository(TripRepository):
-    def __init__(self, session: Session):
+class SQLAlchemyTripRepository(core.TripRepository):
+    def __init__(self, session: orm.Session):
         self.session = session
 
     def update_seats_occupied(self, trip_id: int, seats_occupied: int):
         pass
 
-    def get_trip_by_id(self, trip_id: int) -> Trip:
+    def get_trip_by_id(self, trip_id: int) -> core.Trip:
         pass
 
     def get_available_trips(
@@ -23,20 +23,20 @@ class SQLAlchemyTripRepository(TripRepository):
             origin_city: str,
             destination_city: str,
             departure_date: datetime
-    ) -> list[Trip]:
+    ) -> list[tuple[Any, ...]]:
         fetched_trips = (
-            self.session.query(TripSql.id.label('trip_id'),
-                               BusSql.bus_number,
-                               RouteSql.origin_city,
-                               RouteSql.destination_city,
-                               RouteSql.departure_date,
-                               TripSql.seats_occupied)
-            .join(BusSql, TripSql.bus_id == BusSql.id)
-            .join(RouteSql, TripSql.route_id == RouteSql.id)
+            self.session.query(db_models.TripSql.id.label('trip_id'),
+                               db_models.BusSql.bus_number,
+                               db_models.RouteSql.origin_city,
+                               db_models.RouteSql.destination_city,
+                               db_models.RouteSql.departure_date,
+                               db_models.TripSql.seats_occupied)
+            .join(db_models.BusSql, db_models.TripSql.bus_id == db_models.BusSql.id)
+            .join(db_models.RouteSql, db_models.TripSql.route_id == db_models.RouteSql.id)
             .filter(
-                RouteSql.origin_city == origin_city,
-                RouteSql.destination_city == destination_city,
-                func.date(RouteSql.departure_date) == departure_date.date()
+                db_models.RouteSql.origin_city == origin_city,
+                db_models.RouteSql.destination_city == destination_city,
+                func.date(db_models.RouteSql.departure_date) == departure_date.date()
             )
         ).all()
-        return []
+        return fetched_trips

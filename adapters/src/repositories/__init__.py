@@ -1,2 +1,2 @@
 from .db_models import *
-from .db_models import *
+from .sql_repositories import *

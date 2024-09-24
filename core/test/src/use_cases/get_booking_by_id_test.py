@@ -1,20 +1,18 @@
 from datetime import datetime
-import unittest
-from unittest.mock import MagicMock
-from core.src.repositories.booking_repository import BookingRepository
-from core.src.use_cases.get_booking_by_id import GetBookingById
-from core.src.models.booking import Booking
+from unittest import TestCase, mock
+
+import core
 
 
-class TestGetBookingById(unittest.TestCase):
+class TestGetBookingById(TestCase):
     def setUp(self):
-        self.mock_booking_repository = MagicMock(spec=BookingRepository)
-        self.get_booking_by_id = GetBookingById(self.mock_booking_repository)
+        self.mock_booking_repository = mock.MagicMock(spec=core.BookingRepository)
+        self.get_booking_by_id = core.GetBookingById(self.mock_booking_repository)
 
     def test_execute_with_valid_booking(self):
         # Define test data
         booking_id = 1
-        booking = Booking(
+        booking = core.Booking(
             id=booking_id,
             user_id=123,
             booking_date=datetime.today().date(),
@@ -36,7 +34,3 @@ class TestGetBookingById(unittest.TestCase):
 
         self.mock_booking_repository.get_booking_by_id.assert_called_once_with(booking_id)
         self.assertIsNone(result)
-
-
-if __name__ == '__main__':
-    unittest.main()

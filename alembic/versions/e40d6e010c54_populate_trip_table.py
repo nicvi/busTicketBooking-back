@@ -5,10 +5,12 @@ Revises: dd6dd1f373cc
 Create Date: 2024-09-11 00:27:39.521289
 
 """
-from alembic import op
-import sqlalchemy as sa
-from sqlalchemy.sql import table, column
 import random
+
+import sqlalchemy as sa
+from sqlalchemy.sql import column, table
+
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = 'e40d6e010c54'

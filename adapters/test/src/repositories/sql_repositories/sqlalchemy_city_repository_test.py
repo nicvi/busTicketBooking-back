@@ -1,13 +1,14 @@
-import unittest
-from unittest.mock import MagicMock
-from adapters.src.repositories.sql_repositories import SQLAlchemyCityRepository
-from factories.config.db_connection import SessionLocal
+from unittest import TestCase, mock
+
+from factories import config
+
+from ..... import SQLAlchemyCityRepository
 
 
-class TestSQLAlchemyCityRepository(unittest.TestCase):
+class TestSQLAlchemyCityRepository(TestCase):
     def setUp(self):
-        db = SessionLocal()
-        self.session = MagicMock(db)
+        db = config.SessionLocal()
+        self.session = mock.MagicMock(db)
         self.repo = SQLAlchemyCityRepository(self.session)
 
     def test_get_available_cities(self):

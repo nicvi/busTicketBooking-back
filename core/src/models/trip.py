@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 
-from core.src.models.bus import Bus
-from core.src.models.route import Route
+from .. import models
+
 
 @dataclass
 class Trip:
     trip_id: int
-    bus: Bus
-    route: Route
+    bus: models.Bus
+    route: models.Route
     seats_occupied: int = 0
