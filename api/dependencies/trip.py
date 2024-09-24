@@ -1,6 +1,6 @@
 import core
-from factories import config
 from adapters import repositories
+from factories import config
 
 
 def get_view_available_trips_use_case() -> core.GetAvailableTrips:

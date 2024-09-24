@@ -1,2 +1,2 @@
-from .src import *
 from .fixtures import *
+from .src import *

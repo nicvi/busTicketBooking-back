@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 
 from ... import config
 
+
 @pytest.mark.asyncio
 async def test_custom_apirouter_routes(custom_client_api):
     app = FastAPI()

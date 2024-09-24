@@ -6,6 +6,7 @@ from fastapi import FastAPI
 
 from .. import config
 
+
 def register_routers(app: FastAPI, routers_path: str, stg_name: Optional[str] = "") -> None:
     router_module = import_module(routers_path)
     routers = inspect.getmembers(router_module, lambda member: isinstance(member, config.APIRouter))

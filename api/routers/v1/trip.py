@@ -4,6 +4,7 @@ from http import HTTPStatus
 from fastapi import Depends, HTTPException, status
 
 import core
+
 from ... import config, dependencies, dtos
 
 trip = config.APIRouter()

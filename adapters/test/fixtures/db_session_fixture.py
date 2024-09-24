@@ -1,8 +1,10 @@
-import pytest
 from datetime import datetime
+
+import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from adapters import BusSql, RouteSql, TripSql, Base
+
+from adapters import Base, BusSql, RouteSql, TripSql
 
 
 @pytest.fixture(scope="module")

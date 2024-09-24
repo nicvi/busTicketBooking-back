@@ -5,7 +5,9 @@ import pytest
 
 import core
 from main import app
+
 from .... import dependencies
+
 
 @pytest.mark.asyncio
 async def test_get_booking_by_id_success(client_api, mock_get_booking_by_id_use_case, mock_booking):

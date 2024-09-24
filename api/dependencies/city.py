@@ -1,6 +1,7 @@
 import core
-from factories import config
 from adapters import repositories
+from factories import config
+
 
 def get_cities_use_case() -> core.GetCities:
     db = next(config.get_db())

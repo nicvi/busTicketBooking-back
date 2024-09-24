@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
+
 @pytest.fixture
 def mock_booking():
     mock_booking = MagicMock()

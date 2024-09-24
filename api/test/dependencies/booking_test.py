@@ -1,5 +1,7 @@
 from unittest.mock import MagicMock, patch
+
 import core
+
 from ... import dependencies
 
 

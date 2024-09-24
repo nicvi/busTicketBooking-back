@@ -3,7 +3,9 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
 
 import core
+
 from . import routers
+
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Clients App")

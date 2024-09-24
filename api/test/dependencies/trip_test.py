@@ -1,6 +1,9 @@
 from unittest.mock import MagicMock, patch
+
 import core
+
 from ... import dependencies
+
 
 @patch("factories.config.get_db", return_value=MagicMock())
 @patch("api.dependencies.trip.repositories.SQLAlchemyTripRepository")

@@ -1,7 +1,8 @@
 from unittest import TestCase, mock
 
-from ..... import SQLAlchemyCityRepository
 from factories import config
+
+from ..... import SQLAlchemyCityRepository
 
 
 class TestSQLAlchemyCityRepository(TestCase):

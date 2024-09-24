@@ -1,6 +1,7 @@
 import core
-from factories import config
 from adapters import repositories
+from factories import config
+
 
 def get_booking_by_id_use_case() -> core.GetBookingById:
     db = next(config.get_db())

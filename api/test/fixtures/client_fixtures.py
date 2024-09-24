@@ -1,8 +1,8 @@
+import httpx
 import pytest
 
-import httpx
-
 from main import app
+
 
 @pytest.fixture
 def client_api():

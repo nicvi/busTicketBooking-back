@@ -1,5 +1,5 @@
-from unittest import mock, TestCase
 from datetime import datetime
+from unittest import TestCase, mock
 
 import core
 

@@ -1,6 +1,4 @@
-from .. import models
-from .. import repositories
-
+from .. import models, repositories
 
 
 class GetBookingById:

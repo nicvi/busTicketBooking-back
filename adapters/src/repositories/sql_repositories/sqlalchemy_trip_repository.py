@@ -3,8 +3,9 @@ from typing import Any
 
 from sqlalchemy import func, orm
 
-from .. import db_models
 import core
+
+from .. import db_models
 
 
 class SQLAlchemyTripRepository(core.TripRepository):

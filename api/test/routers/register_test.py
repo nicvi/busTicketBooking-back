@@ -1,8 +1,10 @@
+from unittest.mock import MagicMock, patch
+
 import pytest
 from fastapi import FastAPI
-from unittest.mock import patch, MagicMock
 
-from ... import routers, config
+from ... import config, routers
+
 
 @pytest.mark.asyncio
 async def test_register_routers_with_prefix(custom_client_api):

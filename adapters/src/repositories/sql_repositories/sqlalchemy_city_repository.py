@@ -1,7 +1,8 @@
 from sqlalchemy import distinct, orm
 
-from .. import db_models
 import core
+
+from .. import db_models
 
 
 class SQLAlchemyCityRepository(core.CityRepository):
