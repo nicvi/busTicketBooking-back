@@ -1,10 +1,9 @@
-from sqlalchemy import Column, ForeignKey, Integer
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, ForeignKey, Integer, orm
 
-from .base import Base
+from .. import db_models
 
 
-class TripSql(Base):
+class TripSql(db_models.Base):
     __tablename__ = 'trip'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -12,9 +11,9 @@ class TripSql(Base):
     route_id = Column(Integer, ForeignKey('route.id'), nullable=False)
     seats_occupied = Column(Integer, nullable=False)
 
-    bus = relationship('BusSql', back_populates='trips')
-    route = relationship('RouteSql', back_populates='trips')
-    bookings = relationship('BookingSql', back_populates='trip')
+    bus = orm.relationship('BusSql', back_populates='trips')
+    route = orm.relationship('RouteSql', back_populates='trips')
+    bookings = orm.relationship('BookingSql', back_populates='trip')
 
     def __repr__(self):
         return (f"<TripSql(id={self.id}, bus_id={self.bus_id}, "

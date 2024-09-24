@@ -1,18 +1,17 @@
 from sqlalchemy.orm import Session
 
-from core.src.models.route import Route
-from core.src.repositories.route_repository import RouteRepository
+import core
 
 
-class SQLAlchemyRouteRepository(RouteRepository):
+class SQLAlchemyRouteRepository(core.RouteRepository):
     def __init__(self, session: Session):
         self.session = session
 
-    def get_route_by_id(self, route_id: int) -> Route:
+    def get_route_by_id(self, route_id: int) -> core.Route:
         pass
 
-    def get_routes(self, origin_city: str, destination_city: str) -> list[Route]:
+    def get_routes(self, origin_city: str, destination_city: str) -> list[core.Route]:
         pass
 
-    def save_route(self, route: Route):
+    def save_route(self, route: core.Route):
         pass

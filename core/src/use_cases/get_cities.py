@@ -1,8 +1,8 @@
-from core.src.repositories.city_repository import CityRepository
+from .. import repositories
 
 
 class GetCities:
-    def __init__(self, city_repository: CityRepository):
+    def __init__(self, city_repository: repositories.CityRepository):
         self.city_repository = city_repository
 
     def execute(self) -> list[str]:

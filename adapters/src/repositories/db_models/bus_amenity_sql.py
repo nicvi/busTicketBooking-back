@@ -1,8 +1,8 @@
 from sqlalchemy import Column, ForeignKey, Integer, Table
 
-from .base import Base
+from .. import db_models
 
-bus_amenity_table = Table('bus_amenity', Base.metadata,
+bus_amenity_table = Table('bus_amenity', db_models.Base.metadata,
     Column('bus_id', Integer, ForeignKey('bus.id'), primary_key=True),
     Column('amenity_id', Integer, ForeignKey('amenity.id'), primary_key=True)
 )

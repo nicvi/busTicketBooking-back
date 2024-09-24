@@ -1,10 +1,8 @@
-from adapters.src.repositories.sql_repositories.sqlalchemy_city_repository import \
-    SQLAlchemyCityRepository
-from core.src.use_cases.get_cities import GetCities
-from factories.config.db_connection import SessionLocal
+import core
+from factories import config
+from adapters import repositories
 
-
-def get_cities_use_case() -> GetCities:
-    db = SessionLocal()
-    city_repository = SQLAlchemyCityRepository(session=db)
-    return GetCities(city_repository=city_repository)
+def get_cities_use_case() -> core.GetCities:
+    db = next(config.get_db())
+    city_repository = repositories.SQLAlchemyCityRepository(session=db)
+    return core.GetCities(city_repository=city_repository)

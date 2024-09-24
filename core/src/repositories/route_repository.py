@@ -1,17 +1,17 @@
 from abc import ABC, abstractmethod
 
-from core.src.models.route import Route
+from .. import models
 
 
 class RouteRepository(ABC):
     @abstractmethod
-    def get_route_by_id(self, route_id: int) -> Route:
+    def get_route_by_id(self, route_id: int) -> models.Route:
         pass
 
     @abstractmethod
-    def get_routes(self, origin_city: str, destination_city: str) -> list[Route]:
+    def get_routes(self, origin_city: str, destination_city: str) -> list[models.Route]:
         pass
 
     @abstractmethod
-    def save_route(self, route: Route):
+    def save_route(self, route: models.Route):
         pass

@@ -1,16 +1,15 @@
-from pydantic import BaseModel  # , EmailStr # allow this import
-
+from pydantic import BaseModel, EmailStr
 
 class UserCreateDTO(BaseModel):
     name: str
-    email: str
+    email: EmailStr
     phone_number: str
     password: str
 
 class UserResponseDTO(BaseModel):
     id: int
     name: str
-    email: str
+    email: EmailStr
     phone_number: str
 
     class Config:

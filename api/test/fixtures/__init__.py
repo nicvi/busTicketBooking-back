@@ -1,1 +1,1 @@
-from .client_fixture import *
+from .client_fixtures import *

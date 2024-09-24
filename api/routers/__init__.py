@@ -1,2 +1,2 @@
-from .custom_api_router import APIRouter
 from .register import register_routers
+from .v1 import booking, city, trip

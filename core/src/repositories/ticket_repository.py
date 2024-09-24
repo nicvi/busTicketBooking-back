@@ -1,20 +1,20 @@
 from abc import ABC, abstractmethod
 
-from core.src.models.ticket import Ticket
+from .. import models
 
 
 class TicketRepository(ABC):
 
     @abstractmethod
-    def get_ticket_by_id(self, ticket_id: int) -> Ticket:
+    def get_ticket_by_id(self, ticket_id: int) -> models.Ticket:
         pass
 
     @abstractmethod
-    def list_tickets_by_booking(self, booking_id: int) -> list[Ticket]:
+    def list_tickets_by_booking(self, booking_id: int) -> list[models.Ticket]:
         pass
 
     @abstractmethod
-    def create_ticket(self, ticket: Ticket) -> Ticket:
+    def create_ticket(self, ticket: models.Ticket) -> models.Ticket:
         pass
 
     @abstractmethod

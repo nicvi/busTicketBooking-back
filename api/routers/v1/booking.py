@@ -3,13 +3,12 @@ from http import HTTPStatus
 from fastapi import Depends, HTTPException, status
 
 import core
+from ... import config, dependencies, dtos
 
-from ... import APIRouter, dependencies, dtos
-
-booking = APIRouter()
+booking = config.APIRouter()
 
 @booking.get(
-    "/{booking_id}",
+     path="/{booking_id}",
      name="get_booking",
      status_code=status.HTTP_200_OK,
      response_model=dtos.BookingResponseDTO)
@@ -19,9 +18,7 @@ def get_booking_by_id(
 ) -> dtos.BookingResponseDTO:
     try:
         query_booking = use_case.execute(booking_id)
-        print(f"===> query_booking: {query_booking}")
         response = dtos.BookingResponseDTO.from_orm(query_booking)
         return response
     except Exception as e:
-        print(f"===> Exception: {str(e)}")
         raise HTTPException(status_code=HTTPStatus.INTERNAL_SERVER_ERROR, detail=str(e))

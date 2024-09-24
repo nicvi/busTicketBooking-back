@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
 
 import core
-from . import register_routers
+from . import routers
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Clients App")
@@ -16,7 +16,7 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    register_routers(app, "api.routers.v1", "api")
+    routers.register_routers(app, "api.routers.v1", "api")
 
     @app.exception_handler(core.ItemNotFoundError)
     async def unicorn_exception_handler(request: Request, exc: core.ItemNotFoundError):

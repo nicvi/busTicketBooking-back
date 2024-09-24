@@ -1,17 +1,17 @@
 from abc import ABC, abstractmethod
 
-from core.src.models.bus import Bus
+from .. import models
 
 
 class BusRepository(ABC):
     @abstractmethod
-    def get_bus_by_id(self, bus_id: int) -> Bus:
+    def get_bus_by_id(self, bus_id: int) -> models.Bus:
         pass
 
     @abstractmethod
-    def get_all_buses(self) -> list[Bus]:
+    def get_all_buses(self) -> list[models.Bus]:
         pass
 
     @abstractmethod
-    def save_bus(self, bus: Bus):
+    def save_bus(self, bus: models.Bus):
         pass

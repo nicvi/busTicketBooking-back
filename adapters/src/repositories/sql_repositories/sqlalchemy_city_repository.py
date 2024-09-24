@@ -1,17 +1,16 @@
-from sqlalchemy import distinct
-from sqlalchemy.orm import Session
+from sqlalchemy import distinct, orm
 
-from adapters.src.repositories.db_models.route_sql import RouteSql
-from core.src.repositories.city_repository import CityRepository
+from .. import db_models
+import core
 
 
-class SQLAlchemyCityRepository(CityRepository):
-    def __init__(self, session: Session):
+class SQLAlchemyCityRepository(core.CityRepository):
+    def __init__(self, session: orm.Session):
         self.session = session
 
     def get_available_cities(self) -> list[str]:
-        origin_cities = self.session.query(distinct(RouteSql.origin_city)).all()
-        destination_cities = self.session.query(distinct(RouteSql.destination_city)).all()
+        origin_cities = self.session.query(distinct(db_models.RouteSql.origin_city)).all()
+        destination_cities = self.session.query(distinct(db_models.RouteSql.destination_city)).all()
 
         all_cities = set([city for (city,) in origin_cities + destination_cities])
         return list(all_cities)

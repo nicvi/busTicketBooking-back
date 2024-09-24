@@ -1,21 +1,20 @@
 from sqlalchemy.orm import Session
 
-from core.src.models.booking import Booking
-from core.src.repositories.booking_repository import BookingRepository
+import core
 
 
-class SQLAlchemyBookingRepository(BookingRepository):
+class SQLAlchemyBookingRepository(core.BookingRepository):
     def __init__(self, session: Session):
         self.session = session
 
-    def save_booking(self, booking: Booking):
+    def save_booking(self, booking: core.Booking):
         pass
 
-    def get_bookings_by_user_id(self, user_id: int) -> list[Booking]:
+    def get_bookings_by_user_id(self, user_id: int) -> list[core.Booking]:
         pass
 
-    def create_booking(self, booking: Booking) -> Booking:
+    def create_booking(self, booking: core.Booking) -> core.Booking:
         pass
 
-    def get_booking_by_id(self, booking_id: int) -> Booking:
+    def get_booking_by_id(self, booking_id: int) -> core.Booking:
         pass

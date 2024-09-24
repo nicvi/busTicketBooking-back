@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from core.src.models.booking import Booking
+from .. import models
 
 
 @dataclass
 class Ticket:
     ticket_id: int
-    booking_id: Booking
+    booking_id: models.Booking
     seat_number: int
